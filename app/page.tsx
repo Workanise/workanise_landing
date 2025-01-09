@@ -40,7 +40,7 @@ export default function Home() {
                 Web3 Workspace
                 <GradientText className="block">Reinvented</GradientText>
               </h1>
-              <p className="text-zinc-400 text-lg md:text-xl max-w-xl">
+              <p className="text-zinc-300 text-lg md:text-xl max-w-xl">
                 Building an ultrastandard workspace for web3 freelance
                 solutions, reshaping digital services with community as the
                 foundation.

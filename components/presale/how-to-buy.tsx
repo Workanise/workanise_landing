@@ -26,7 +26,7 @@ export function HowToBuy() {
       <div className="container mx-auto space-y-12">
         <div className="text-center space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white">How to Buy</h2>
-          <p className="text-zinc-400">Follow these simple steps to purchase WRK tokens</p>
+          <p className="text-zinc-400">Follow these simple steps to purchase WORK tokens</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -45,7 +45,7 @@ export function HowToBuy() {
 
         <div className="flex justify-center">
           <Button size="lg" className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90">
-            Buy WRK Now
+            Buy WORK Now
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

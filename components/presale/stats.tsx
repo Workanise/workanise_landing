@@ -17,7 +17,7 @@ export function PresaleStats() {
             </div>
             <div className="space-y-2">
               <h3 className="text-lg font-medium text-zinc-400">Total Supply</h3>
-              <p className="text-3xl font-bold text-white">260M WRK</p>
+              <p className="text-3xl font-bold text-white">260M WORK</p>
             </div>
             <div className="space-y-2">
               <h3 className="text-lg font-medium text-zinc-400">Next Price</h3>

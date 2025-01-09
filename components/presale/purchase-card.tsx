@@ -10,7 +10,7 @@ export function PurchaseCard() {
     <GlowCard className="p-6 w-full max-w-md mx-auto">
       <div className="space-y-6">
         <div className="text-center space-y-2">
-          <h2 className="text-2xl font-bold text-white">Buy WRK Tokens</h2>
+          <h2 className="text-2xl font-bold text-white">Buy WORK Tokens</h2>
           <p className="text-[#00faa7]">Limited Time Offer</p>
         </div>
 
@@ -51,7 +51,7 @@ export function PurchaseCard() {
                   height={18}
                   className="rounded-full"
                 />
-                <span className="text-zinc-400">WRK you receive</span>
+                <span className="text-zinc-400">WORK you receive</span>
               </div>
               <span className="text-white">0.0</span>
             </div>

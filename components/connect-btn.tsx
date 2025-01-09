@@ -17,12 +17,12 @@ import { client } from "@/lib/thirdweb";
 import {
   coinbase_icon,
   metamark_icon,
-  rainbow_icon,
-  bitget_icon,
   phantom_icon,
   okx_icon,
+  presale_time,
 } from "@/lib/constant";
 import { useConnect, useAutoConnect, useActiveAccount } from "thirdweb/react";
+import CountdownTimer from "@/lib/countdown-time";
 
 const walletss = [
   {
@@ -57,6 +57,7 @@ const wallets = [
 
 export function ConnectBtn() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const { connect } = useConnect();
   const account = useActiveAccount();
 
@@ -90,8 +91,13 @@ export function ConnectBtn() {
         <Button
           variant="outline"
           className="w-full gap-2 bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
+          disabled={!isButtonEnabled}
         >
-          Buy
+          <CountdownTimer
+            targetDate={presale_time as string}
+            liveText="Mint Now"
+            onStateChange={(isLive) => setIsButtonEnabled(isLive)}
+          />
         </Button>
       ) : (
         <DialogTrigger asChild>

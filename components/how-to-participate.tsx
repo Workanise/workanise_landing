@@ -21,7 +21,7 @@ export function HowToParticipate() {
                 <h3 className="text-xl font-semibold text-white">Connect Your Wallet</h3>
               </div>
               <p className="text-zinc-400 pl-12">
-                Click on "Connect Wallet" and choose your preferred wallet (MetaMask, Trust Wallet, etc.)
+                Click on "Connect Wallet" and choose your preferred wallet (MetaMask, Coinbase Wallet, etc.)
               </p>
             </div>
 
@@ -33,7 +33,7 @@ export function HowToParticipate() {
                 <h3 className="text-xl font-semibold text-white">Choose Payment Method</h3>
               </div>
               <p className="text-zinc-400 pl-12">
-                Select your preferred payment method: ETH, USDT, or Credit Card
+                Select your preferred payment method: ETH
               </p>
             </div>
 

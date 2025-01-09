@@ -25,7 +25,7 @@ export function PresaleCard() {
 
         <div className="p-4 bg-zinc-800/50 rounded-lg">
           <div className="flex justify-between items-center">
-            <span className="text-zinc-400">1 WRK =</span>
+            <span className="text-zinc-400">1 WORK =</span>
             <span className="text-[#00faa7] font-medium">TBA</span>
           </div>
         </div>

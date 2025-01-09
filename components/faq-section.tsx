@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "What is the total token supply?",
-    answer: "The total supply of WRK tokens is 260 Million, with a hard cap of 260 Million. The tokens are distributed across different allocations including public sales (30%), marketing (25%), and community reserve (25%)."
+    answer: "The total supply of WORK tokens is 260 Million, with a hard cap of 260 Million. The tokens are distributed across different allocations including public sales (30%), marketing (25%), and community reserve (25%)."
   },
   {
     question: "Are the team tokens locked?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "What blockchain network is Workanise built on?",
-    answer: "Workanise (WRK) is built on the Ethereum network as an ERC-20 token, ensuring security, reliability, and wide compatibility with existing web3 infrastructure."
+    answer: "Workanise (WORK) is built on the Ethereum network as an ERC-20 token, ensuring security, reliability, and wide compatibility with existing web3 infrastructure."
   },
   {
     question: "What are the benefits of participating in the presale?",
