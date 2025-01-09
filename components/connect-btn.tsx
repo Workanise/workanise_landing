@@ -36,19 +36,9 @@ const walletss = [
     icon: coinbase_icon as string,
   },
   {
-    name: "Rainbow",
-    create: () => createWallet("me.rainbow"),
-    icon: rainbow_icon as string,
-  },
-  {
     name: "OKX Wallet",
     create: () => createWallet("com.okex.wallet"),
     icon: okx_icon as string,
-  },
-  {
-    name: "Bitget",
-    create: () => createWallet("com.bitget.web3"),
-    icon: bitget_icon as string,
   },
   {
     name: "Phantom",
@@ -60,10 +50,8 @@ const walletss = [
 const wallets = [
   inAppWallet(),
   createWallet("io.metamask"),
-  createWallet("me.rainbow"),
   createWallet("com.coinbase.wallet"),
   createWallet("com.okex.wallet"),
-  createWallet("com.bitget.web3"),
   createWallet("app.phantom"),
 ];
 
@@ -128,10 +116,9 @@ export function ConnectBtn() {
         </DialogHeader>
         <div className="grid gap-4 py-4">
           {walletss.map((wallet) => (
-            <Button
+            <div
               key={wallet.name}
-              variant="outline"
-              className="w-full justify-start gap-4 border-zinc-700 hover:bg-zinc-800 hover:text-white"
+              className="flex py-3 px-2 rounded-sm justify-start gap-4 border-zinc-700 hover:bg-zinc-800 hover:text-white"
               onClick={() => handleConnect(wallet.create)}
             >
               <Image
@@ -142,7 +129,7 @@ export function ConnectBtn() {
                 className="rounded-full"
               />
               {wallet.name}
-            </Button>
+            </div>
           ))}
         </div>
       </DialogContent>

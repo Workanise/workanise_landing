@@ -17,9 +17,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { shortenAddress } from "thirdweb/utils";
+import { useEffect, useState } from "react";
 
 export function Navigation() {
+  const [isPresalePage, setIsPresalePage] = useState(true);
+
   const menuItems = [
+    { label: "Home", href: "/" },
     { label: "Tokenomics", href: "#tokenomics" },
     { label: "Roadmap", href: "#roadmap" },
     { label: "About", href: "#about" },
@@ -28,6 +32,12 @@ export function Navigation() {
   const { disconnect } = useDisconnect();
   const wallet = useActiveWallet();
   const account = useActiveAccount();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsPresalePage(window.location.pathname === "/presale");
+    }
+  }, []);
 
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-zinc-800 bg-zinc-900/80 backdrop-blur-sm">
@@ -41,7 +51,9 @@ export function Navigation() {
               height={40}
               className="w-10 h-10"
             />
-            <span className="font-bold text-xl text-white">Workanis3</span>
+            <span className="font-bold  text-base md:text-xl text-white">
+              Workanis3
+            </span>
           </div>
         </Link>
 
@@ -56,12 +68,15 @@ export function Navigation() {
               {item.label}
             </Link>
           ))}
-          <Button
-            onClick={() => (window.location.href = "/presale")}
-            className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
-          >
-            Join Presale
-          </Button>
+
+          {!isPresalePage && (
+            <Button
+              onClick={() => (window.location.href = "/presale")}
+              className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90 w-full"
+            >
+              Join Presale
+            </Button>
+          )}
 
           {wallet && (
             <DropdownMenu>
@@ -83,10 +98,10 @@ export function Navigation() {
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-6 w-6" />
+              <Menu className="h-8 w-8" />
             </Button>
           </SheetTrigger>
-          <SheetContent>
+          <SheetContent className="h-[600px]">
             <div className="flex flex-col gap-4 mt-8">
               {menuItems.map((item) => (
                 <Link
@@ -97,12 +112,15 @@ export function Navigation() {
                   {item.label}
                 </Link>
               ))}
-              <Button
-                onClick={() => (window.location.href = "/presale")}
-                className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90 w-full"
-              >
-                Join Presale
-              </Button>
+              {!isPresalePage && (
+                <Button
+                  onClick={() => (window.location.href = "/presale")}
+                  className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90 w-full"
+                >
+                  Join Presale
+                </Button>
+              )}
+
               {wallet && (
                 <>
                   <Button onClick={() => disconnect(wallet)} variant="outline">
@@ -110,8 +128,8 @@ export function Navigation() {
                   </Button>
                   <Button
                     onClick={() => disconnect(wallet)}
-                    variant="ghost"
-                    className="w-full justify-start"
+                    variant="outline"
+                    className="text-zinc-900"
                   >
                     Disconnect
                   </Button>

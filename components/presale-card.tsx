@@ -49,10 +49,10 @@ export function PresaleCard() {
                   height={16}
                   className="rounded-full"
                 />
-                <span className="text-zinc-400">ETH you pay</span>
+                <span className="text-zinc-400">ETH</span>
               </div>
               <input
-                type="number"
+                type="text"
                 className="bg-transparent text-right focus:outline-none text-white"
                 placeholder="0.0"
               />

@@ -102,7 +102,7 @@ export default function Home() {
               </GlowCard>
 
               {/* <GlowCard className="p-6"> */}
-              <div className="h-[400px] flex items-center justify-center w-full ">
+              <div className="hidden sm:flex h-[300px] items-center justify-center w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
