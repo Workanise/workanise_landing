@@ -4,7 +4,12 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   useDisconnect,
   useActiveWallet,
@@ -18,6 +23,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { shortenAddress } from "thirdweb/utils";
 import { useEffect, useState } from "react";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
 
 export function Navigation() {
   const [isPresalePage, setIsPresalePage] = useState(true);
@@ -97,20 +103,18 @@ export function Navigation() {
         {/* Mobile Menu */}
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-8 w-8" />
-            </Button>
+            <Menu className="size-9 md:hidden" />
           </SheetTrigger>
           <SheetContent className="h-[600px]">
             <div className="flex flex-col gap-4 mt-8">
               {menuItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-zinc-400 hover:text-[#00faa7] transition-colors"
-                >
-                  {item.label}
-                </Link>
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="text-zinc-400 hover:text-[#00faa7] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
               ))}
               {!isPresalePage && (
                 <Button
