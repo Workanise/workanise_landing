@@ -30,6 +30,11 @@ export function Navigation() {
     { label: "Tokenomics", href: "#tokenomics" },
     { label: "Roadmap", href: "#roadmap" },
     { label: "About", href: "#about" },
+    {
+      label: "Social Tasks Bonus",
+      href: "https://gleam.io/ne7HX/workanise-early-adopter-campaign",
+      external: true,
+    },
   ];
 
   const { disconnect } = useDisconnect();
@@ -41,7 +46,6 @@ export function Navigation() {
     address: account?.address,
     client,
   });
-
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -69,20 +73,32 @@ export function Navigation() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          {menuItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="text-zinc-400 hover:text-[#00faa7] transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {menuItems.map((item) =>
+            item.external ? (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-400 hover:text-[#00faa7] transition-colors"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-zinc-400 hover:text-[#00faa7] transition-colors"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
 
           {!isPresalePage && (
             <Button
               onClick={() => (window.location.href = "/presale")}
-              className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90 w-full"
+              className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
             >
               Join Presale
             </Button>
@@ -92,14 +108,15 @@ export function Navigation() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">
-                  <div className="flex flex-col items-center text-[12px]">
+                  <div className="flex flex-col items-center text-[14px]">
                     <span> {shortenAddress(account?.address || "")}</span>
                     <span>
                       {data?.displayValue
                         ? parseFloat(data.displayValue)
                             .toFixed(2)
                             .replace(/\.00$/, "") // Remove trailing zeros if present
-                        : "0.00"} {''}
+                        : "0.00"}{" "}
+                      {""}
                       {data?.symbol}
                     </span>
                   </div>
@@ -121,15 +138,27 @@ export function Navigation() {
           </SheetTrigger>
           <SheetContent className="h-[600px] bg-black text-white border-zinc-800 border">
             <div className="flex flex-col gap-4 mt-8">
-              {menuItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-zinc-400 hover:text-[#00faa7] transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {menuItems.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-400 hover:text-[#00faa7] transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="text-zinc-400 hover:text-[#00faa7] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
               {!isPresalePage && (
                 <Button
                   onClick={() => (window.location.href = "/presale")}

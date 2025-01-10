@@ -5,7 +5,6 @@ import { GradientText } from "@/components/ui/gradient-text";
 import { Button } from "@/components/ui/button";
 import { GlowCard } from "@/components/ui/glow-card";
 import { ChevronRight } from "lucide-react";
-import Image from "next/image";
 import {
   Table,
   TableBody,
@@ -17,6 +16,7 @@ import {
 import { PieChart, Pie, ResponsiveContainer, Tooltip, Cell } from "recharts";
 import { FAQSection } from "@/components/faq-section";
 import { HowToParticipate } from "@/components/how-to-participate";
+import { SocialTasks } from "@/components/social-tasks"
 
 export default function Home() {
   const tokenomicsData = [
@@ -27,6 +27,7 @@ export default function Home() {
     { name: "Advisors", value: 1.5, color: "#8c41d7" },
     { name: "Public Sales", value: 30, color: "#db6161" },
     { name: "Strategic Partnership", value: 3.5, color: "#ecf147" },
+    {name: "Presale Referral Bonus", value: 1, color: "#37c0c5"}
   ];
 
   return (
@@ -38,12 +39,13 @@ export default function Home() {
             <div className="space-y-6">
               <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white">
                 Freelance Workspace
-                <GradientText className="block">Reinvented for Web3</GradientText>
+                <GradientText className="block">
+                  Reinvented for Web3
+                </GradientText>
               </h1>
               <p className="text-zinc-300 text-lg md:text-xl max-w-xl">
-                Building an ultrastandard workspace for web3 freelance
-                solutions and reshaping digital services with community as the
-                foundation.
+                Building an ultrastandard workspace for web3 freelance solutions
+                and reshaping digital services with community as the foundation.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button
@@ -102,7 +104,7 @@ export default function Home() {
               </GlowCard>
 
               {/* <GlowCard className="p-6"> */}
-              <div className="hidden sm:flex h-[300px] items-center justify-center w-full">
+              <div className="hidden sm:flex h-[450px] items-center justify-center w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
@@ -138,7 +140,7 @@ export default function Home() {
                 <div className="text-zinc-400">Network:</div>
                 <div className="text-white text-right">ERC-20</div>
                 <div className="text-zinc-400">Total Supply:</div>
-                <div className="text-white text-right">350 Million</div>
+                <div className="text-white text-right">365 Million</div>
               </div>
             </div>
 
@@ -267,32 +269,14 @@ export default function Home() {
           </div>
         </section>
 
+         {/* Social Tasks Section */}
+         <SocialTasks />
+
         {/* How to Participate Section */}
         <HowToParticipate />
 
         {/* FAQ Section */}
         <FAQSection />
-
-        {/* Footer */}
-        <footer className="py-8 px-4 border-t border-zinc-800">
-          <div className="container mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/images/logo.png"
-                  alt="Workanise Logo"
-                  width={32}
-                  height={32}
-                  className="w-8 h-8"
-                />
-                <span className="font-bold text-white">Workanise</span>
-              </div>
-              <p className="text-zinc-400 text-sm text-center">
-                © {new Date().getFullYear()} Workanise. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   );

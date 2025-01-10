@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThirdwebProvider } from "thirdweb/react";
 import { Navigation } from "@/components/navigation";
 import { ToastContainer } from "react-toastify";
+import { Footer } from "../components/footer";
 
 const mont = Montserrat({ weight: ["400", "700"], subsets: ["latin"] });
 
@@ -45,6 +46,7 @@ export default function RootLayout({
           <div className="flex flex-col ">
             <Navigation />
             {children}
+            <Footer />
           </div>
           <ToastContainer />
         </ThirdwebProvider>
