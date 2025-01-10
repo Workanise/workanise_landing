@@ -26,7 +26,7 @@ export function PresaleHero() {
               Buy WORK Now
             </Button>
             <Button size="lg" variant="outline" className="border-zinc-700">
-              Read Whitepaper
+              Read Litepaper
             </Button>
           </div>
         </div>

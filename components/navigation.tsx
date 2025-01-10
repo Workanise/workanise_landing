@@ -4,16 +4,12 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   useDisconnect,
   useActiveWallet,
   useActiveAccount,
+  useWalletBalance,
 } from "thirdweb/react";
 import {
   DropdownMenu,
@@ -23,7 +19,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { shortenAddress } from "thirdweb/utils";
 import { useEffect, useState } from "react";
-import * as SheetPrimitive from "@radix-ui/react-dialog";
+import { client } from "@/lib/thirdweb";
+import { defineChain } from "thirdweb/chains";
 
 export function Navigation() {
   const [isPresalePage, setIsPresalePage] = useState(true);
@@ -38,6 +35,13 @@ export function Navigation() {
   const { disconnect } = useDisconnect();
   const wallet = useActiveWallet();
   const account = useActiveAccount();
+
+  const { data, isLoading, isError } = useWalletBalance({
+    chain: defineChain(11155111),
+    address: account?.address,
+    client,
+  });
+
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -88,7 +92,17 @@ export function Navigation() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">
-                  {shortenAddress(account?.address || "")}
+                  <div className="flex flex-col items-center text-[12px]">
+                    <span> {shortenAddress(account?.address || "")}</span>
+                    <span>
+                      {data?.displayValue
+                        ? parseFloat(data.displayValue)
+                            .toFixed(2)
+                            .replace(/\.00$/, "") // Remove trailing zeros if present
+                        : "0.00"} {''}
+                      {data?.symbol}
+                    </span>
+                  </div>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="border border-white">
@@ -105,16 +119,16 @@ export function Navigation() {
           <SheetTrigger asChild>
             <Menu className="size-9 md:hidden" />
           </SheetTrigger>
-          <SheetContent className="h-[600px]">
+          <SheetContent className="h-[600px] bg-black text-white border-zinc-800 border">
             <div className="flex flex-col gap-4 mt-8">
               {menuItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="text-zinc-400 hover:text-[#00faa7] transition-colors"
-                  >
-                    {item.label}
-                  </Link>
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-zinc-400 hover:text-[#00faa7] transition-colors"
+                >
+                  {item.label}
+                </Link>
               ))}
               {!isPresalePage && (
                 <Button

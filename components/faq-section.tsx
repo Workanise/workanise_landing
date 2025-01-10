@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "What is the total token supply?",
-    answer: "The total supply of WORK tokens is 260 Million, with a hard cap of 260 Million. The tokens are distributed across different allocations including public sales (30%), marketing (25%), and community reserve (25%)."
+    answer: "The total supply of WORK tokens is 350 Million, with a Max Total Supply of 350 Million. The tokens are distributed across different allocations including public sales (30%), marketing (25%), and community reserve (25%)."
   },
   {
     question: "Are the team tokens locked?",

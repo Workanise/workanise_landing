@@ -37,12 +37,12 @@ export default function Home() {
           <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white">
-                Web3 Workspace
-                <GradientText className="block">Reinvented</GradientText>
+                Freelance Workspace
+                <GradientText className="block">Reinvented for Web3</GradientText>
               </h1>
               <p className="text-zinc-300 text-lg md:text-xl max-w-xl">
                 Building an ultrastandard workspace for web3 freelance
-                solutions, reshaping digital services with community as the
+                solutions and reshaping digital services with community as the
                 foundation.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -134,11 +134,11 @@ export default function Home() {
                 <div className="text-zinc-400">Title:</div>
                 <div className="text-white text-right">Workanis3</div>
                 <div className="text-zinc-400">Token name:</div>
-                <div className="text-white text-right">WRK</div>
+                <div className="text-white text-right">WORK</div>
                 <div className="text-zinc-400">Network:</div>
                 <div className="text-white text-right">ERC-20</div>
                 <div className="text-zinc-400">Total Supply:</div>
-                <div className="text-white text-right">260 Million</div>
+                <div className="text-white text-right">350 Million</div>
               </div>
             </div>
 

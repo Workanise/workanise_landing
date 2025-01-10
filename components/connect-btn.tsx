@@ -11,7 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { createWallet, inAppWallet } from "thirdweb/wallets";
+import { createWallet } from "thirdweb/wallets";
 import Image from "next/image";
 import { client } from "@/lib/thirdweb";
 import {
@@ -48,14 +48,18 @@ const walletss = [
 ];
 
 const wallets = [
-  inAppWallet(),
   createWallet("io.metamask"),
   createWallet("com.coinbase.wallet"),
   createWallet("com.okex.wallet"),
   createWallet("app.phantom"),
 ];
 
-export function ConnectBtn() {
+interface ConnectBtnProps {
+  onclick: () => void;
+  loading?: boolean;
+}
+
+export function ConnectBtn({ onclick, loading }: ConnectBtnProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
   const { connect } = useConnect();
@@ -92,6 +96,8 @@ export function ConnectBtn() {
           variant="outline"
           className="w-full gap-2 bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
           disabled={!isButtonEnabled}
+          onClick={onclick}
+          loading={loading}
         >
           <CountdownTimer
             targetDate={presale_time as string}
@@ -124,7 +130,7 @@ export function ConnectBtn() {
           {walletss.map((wallet) => (
             <div
               key={wallet.name}
-              className="flex py-3 px-2 rounded-sm justify-start gap-4 border-zinc-700 hover:bg-zinc-800 hover:text-white"
+              className="flex py-3 px-2 rounded-sm justify-start gap-4 border-zinc-700 hover:bg-zinc-800 hover:text-white cursor-pointer"
               onClick={() => handleConnect(wallet.create)}
             >
               <Image
@@ -132,9 +138,9 @@ export function ConnectBtn() {
                 alt={`${wallet.name} icon`}
                 width={24}
                 height={24}
-                className="rounded-full"
+                className="rounded-full cursor-pointer"
               />
-              {wallet.name}
+              <span className="cursor-pointer"> {wallet.name}</span>
             </div>
           ))}
         </div>

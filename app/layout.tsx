@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ThirdwebProvider } from "thirdweb/react";
 import { Navigation } from "@/components/navigation";
+import { ToastContainer } from "react-toastify";
 
 const mont = Montserrat({ weight: ["400", "700"], subsets: ["latin"] });
 
@@ -45,6 +46,7 @@ export default function RootLayout({
             <Navigation />
             {children}
           </div>
+          <ToastContainer />
         </ThirdwebProvider>
       </body>
     </html>
