@@ -55,7 +55,7 @@ const wallets = [
 ];
 
 interface ConnectBtnProps {
-  onclick: () => void;
+  onclick?: () => void;
   loading?: boolean;
 }
 
@@ -110,7 +110,6 @@ export function ConnectBtn({ onclick, loading }: ConnectBtnProps) {
           <div>
             <Button
               className="w-full gap-2 bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
-              loading={isLoading}
             >
               <Wallet2 className="w-4 h-4" />
               Connect Wallet

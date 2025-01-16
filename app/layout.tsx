@@ -43,11 +43,7 @@ export default function RootLayout({
       </head>
       <body className={`${mont.className} bg-zinc-900 text-white`}>
         <ThirdwebProvider>
-          <div className="flex flex-col ">
-            <Navigation />
-            {children}
-            <Footer />
-          </div>
+          {children}
           <ToastContainer />
         </ThirdwebProvider>
       </body>

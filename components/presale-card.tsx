@@ -3,7 +3,7 @@
 import { Progress } from "@/components/ui/progress";
 import { GlowCard } from "@/components/ui/glow-card";
 import { usePresaleProgress } from "@/hooks/usePresaleProgress";
-import { Mint } from "./mint";
+import { Mint } from "./dashboard/mint";
 
 export function PresaleCard() {
   const { currentSupply, progressPercentage, isPending } = usePresaleProgress();

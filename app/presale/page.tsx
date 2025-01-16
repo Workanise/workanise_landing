@@ -1,17 +1,15 @@
-import { PresaleHero } from "@/components/presale/hero";
-import { PresaleStats } from "@/components/presale/stats";
-import { HowToBuy } from "@/components/presale/how-to-buy";
-import { Benefits } from "@/components/presale/benefits";
+import { DashboardLayout } from "@/components/dashboard/layout"
+import { DashboardHeader } from "@/components/dashboard/header"
+import { MainContent } from "@/components/dashboard/main-content"
+import { DashboardFooter } from "@/components/dashboard/footer"
 
 export default function PresalePage() {
   return (
-    <div className="min-h-screen bg-zinc-900 relative overflow-hidden">
-      <div className="relative z-10">
-        <PresaleHero />
-        <PresaleStats />
-        <HowToBuy />
-        <Benefits />
-      </div>
-    </div>
-  );
+    <DashboardLayout>
+      <DashboardHeader />
+      <MainContent />
+      <DashboardFooter />
+    </DashboardLayout>
+  )
 }
+

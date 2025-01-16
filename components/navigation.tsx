@@ -5,26 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import {
-  useDisconnect,
-  useActiveWallet,
-  useActiveAccount,
-  useWalletBalance,
-} from "thirdweb/react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { shortenAddress } from "thirdweb/utils";
+
 import { useEffect, useState } from "react";
-import { client } from "@/lib/thirdweb";
-import { defineChain } from "thirdweb/chains";
 
 export function Navigation() {
-  const [isPresalePage, setIsPresalePage] = useState(true);
-
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "Tokenomics", href: "#tokenomics" },
@@ -36,22 +20,6 @@ export function Navigation() {
       external: true,
     },
   ];
-
-  const { disconnect } = useDisconnect();
-  const wallet = useActiveWallet();
-  const account = useActiveAccount();
-
-  const { data, isLoading, isError } = useWalletBalance({
-    chain: defineChain(11155111),
-    address: account?.address,
-    client,
-  });
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsPresalePage(window.location.pathname === "/presale");
-    }
-  }, []);
 
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-zinc-800 bg-zinc-900/80 backdrop-blur-sm">
@@ -95,16 +63,14 @@ export function Navigation() {
             )
           )}
 
-          {!isPresalePage && (
-            <Button
-              onClick={() => (window.location.href = "/presale")}
-              className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
-            >
-              Join Presale
-            </Button>
-          )}
+          <Button
+            onClick={() => (window.location.href = "/presale")}
+            className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
+          >
+            Join Presale
+          </Button>
 
-          {wallet && (
+          {/* {wallet && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">
@@ -128,7 +94,7 @@ export function Navigation() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          )}
+          )} */}
         </div>
 
         {/* Mobile Menu */}
@@ -159,29 +125,13 @@ export function Navigation() {
                   </Link>
                 )
               )}
-              {!isPresalePage && (
-                <Button
-                  onClick={() => (window.location.href = "/presale")}
-                  className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90 w-full"
-                >
-                  Join Presale
-                </Button>
-              )}
 
-              {wallet && (
-                <>
-                  <Button onClick={() => disconnect(wallet)} variant="outline">
-                    {shortenAddress(account?.address || "")}
-                  </Button>
-                  <Button
-                    onClick={() => disconnect(wallet)}
-                    variant="outline"
-                    className="text-zinc-900"
-                  >
-                    Disconnect
-                  </Button>
-                </>
-              )}
+              <Button
+                onClick={() => (window.location.href = "/presale")}
+                className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90 w-full"
+              >
+                Join Presale
+              </Button>
             </div>
           </SheetContent>
         </Sheet>
