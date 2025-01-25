@@ -53,7 +53,6 @@ export function HowToParticipate() {
             <div>
             <a href="https://app.hel.io/pay/678ce784a8f2dca1e48eec56" target="_blank" rel="noopener noreferrer " className="no-underline">
               <Button
-                onClick={() => (window.location.href = "/presale")}
                 className="w-full gap-2 bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90">
                 Join Presale Now
                 <ArrowRight className="w-4 h-4" />
