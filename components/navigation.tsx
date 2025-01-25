@@ -6,7 +6,6 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-import { useEffect, useState } from "react";
 
 export function Navigation() {
   const menuItems = [
@@ -63,12 +62,14 @@ export function Navigation() {
             )
           )}
 
-          <Button
-            onClick={() => (window.location.href = "/presale")}
-            className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
-          >
-            Join Presale
-          </Button>
+          <a href="https://app.hel.io/pay/678ce784a8f2dca1e48eec56" target="_blank" rel="noopener noreferrer " className="no-underline">
+            <Button
+
+              className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
+            >
+              Join Presale
+            </Button>
+          </a>
 
           {/* {wallet && (
             <DropdownMenu>
@@ -126,12 +127,14 @@ export function Navigation() {
                 )
               )}
 
-              <Button
-                onClick={() => (window.location.href = "/presale")}
-                className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90 w-full"
-              >
-                Join Presale
-              </Button>
+              <a href="https://app.hel.io/pay/678ce784a8f2dca1e48eec56" target="_blank" rel="noopener noreferrer " className="no-underline">
+                <Button
+
+                  className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
+                >
+                  Join Presale
+                </Button>
+              </a>
             </div>
           </SheetContent>
         </Sheet>

@@ -19,6 +19,7 @@ import { HowToParticipate } from "@/components/how-to-participate";
 import { SocialTasks } from "@/components/social-tasks";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { PresaleStats } from "@/components/presale/stats";
 
 export default function Home() {
   const tokenomicsData = [
@@ -53,26 +54,32 @@ export default function Home() {
                   foundation.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button
-                    onClick={() => (window.location.href = "/presale")}
-                    size="lg"
-                    className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
-                  >
-                    Join Presale
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-zinc-700"
-                  >
-                    Learn More
-                  </Button>
+                  <a href="https://app.hel.io/pay/678ce784a8f2dca1e48eec56" target="_blank" rel="noopener noreferrer " className="no-underline">
+                    <Button
+                      size="lg"
+                      className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
+                    >
+                      Join Presale
+                    </Button>
+                  </a>
+                  <a href="https://workanise-litepaper.gitbook.io/workanise-litepaper" target="_blank" rel="noopener noreferrer " className="no-underline">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-zinc-700"
+                    >
+                      Read Litepaper
+                    </Button>
+                  </a>
                 </div>
               </div>
 
               <PresaleCard />
             </div>
           </section>
+
+          {/* Statistics */}
+          <PresaleStats/>
 
           {/* Tokenomics Section */}
           <section id="tokenomics" className="py-20 px-4">
@@ -268,12 +275,16 @@ export default function Home() {
                   services in the right track, using the community as the
                   building block.
                 </p>
-                <Button
-                  size="lg"
-                  className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
-                >
-                  Learn More
-                </Button>
+                <div>
+                  <a href="https://workanise-litepaper.gitbook.io/workanise-litepaper" target="_blank" rel="noopener noreferrer " className="no-underline" >
+                    <Button
+                      size="lg"
+                      className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
+                    >
+                      Learn More
+                    </Button>
+                  </a>
+                </div>
               </div>
             </div>
           </section>
