@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ConnectBtn } from "./connect-btn";
+import { ConnectBtn } from "../connect-btn";
 import { eth_price_per_work, etherscan_url } from "@/lib/constant";
 import { contract } from "@/lib/thirdweb";
 import { useActiveAccount } from "thirdweb/react";

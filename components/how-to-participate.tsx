@@ -33,7 +33,7 @@ export function HowToParticipate() {
                 <h3 className="text-xl font-semibold text-white">Choose Payment Method</h3>
               </div>
               <p className="text-zinc-400 pl-12">
-                Select your preferred payment method: ETH
+                Select your preferred payment method: ETH, USDT, USDC, SOL
               </p>
             </div>
 
@@ -49,12 +49,17 @@ export function HowToParticipate() {
               </p>
             </div>
 
-            <Button
-             onClick={() => (window.location.href = "/presale")}
-             className="w-full gap-2 bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90">
-              Join Presale Now
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+
+            <div>
+            <a href="https://app.hel.io/pay/678ce784a8f2dca1e48eec56" target="_blank" rel="noopener noreferrer " className="no-underline">
+              <Button
+                onClick={() => (window.location.href = "/presale")}
+                className="w-full gap-2 bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90">
+                Join Presale Now
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </a>
+            </div>
           </GlowCard>
 
           <GlowCard className="aspect-video">

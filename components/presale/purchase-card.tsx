@@ -1,6 +1,6 @@
 "use client";
 import { GlowCard } from "@/components/ui/glow-card";
-import { Mint } from "../mint";
+import { Mint } from "../dashboard/mint";
 
 export function PurchaseCard() {
 
