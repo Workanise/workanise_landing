@@ -20,6 +20,8 @@ import { SocialTasks } from "@/components/social-tasks";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { PresaleStats } from "@/components/presale/stats";
+import { useState } from "react";
+import { PresaleRedirectModal } from "@/components/presale-redirect-modal";
 
 export default function Home() {
   const tokenomicsData = [
@@ -32,6 +34,8 @@ export default function Home() {
     { name: "Strategic Partnership", value: 3.5, color: "#ecf147" },
     { name: "Presale Referral Bonus", value: 1, color: "#37c0c5" },
   ];
+
+  const [isPresaleModalOpen, setIsPresaleModalOpen] = useState(false)
 
   return (
     <>
@@ -54,14 +58,15 @@ export default function Home() {
                   foundation.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <a href="https://app.hel.io/pay/678ce784a8f2dca1e48eec56" target="_blank" rel="noopener noreferrer " className="no-underline">
-                    <Button
-                      size="lg"
-                      className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
-                    >
-                      Join Presale
-                    </Button>
-                  </a>
+
+                  <Button
+                    onClick={() => setIsPresaleModalOpen(true)}
+                    size="lg"
+                    className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
+                  >
+                    Join Presale
+                  </Button>
+
                   <a href="https://workanise-litepaper.gitbook.io/workanise-litepaper" target="_blank" rel="noopener noreferrer " className="no-underline">
                     <Button
                       size="lg"
@@ -79,7 +84,7 @@ export default function Home() {
           </section>
 
           {/* Statistics */}
-          <PresaleStats/>
+          <PresaleStats />
 
           {/* Tokenomics Section */}
           <section id="tokenomics" className="py-20 px-4">
@@ -293,13 +298,16 @@ export default function Home() {
           <SocialTasks />
 
           {/* How to Participate Section */}
-          <HowToParticipate />
+          <HowToParticipate
+            setIsPresaleModalOpen={setIsPresaleModalOpen}
+          />
 
           {/* FAQ Section */}
           <FAQSection />
         </div>
       </div>
       <Footer />
+      <PresaleRedirectModal isOpen={isPresaleModalOpen} onClose={() => setIsPresaleModalOpen(false)} />
     </>
   );
 }

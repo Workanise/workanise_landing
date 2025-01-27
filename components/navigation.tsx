@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { PresaleRedirectModal } from "./presale-redirect-modal";
+import { useState } from "react";
 
 
 export function Navigation() {
@@ -19,6 +21,8 @@ export function Navigation() {
       external: true,
     },
   ];
+
+  const [isPresaleModalOpen, setIsPresaleModalOpen] = useState(false)
 
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-zinc-800 bg-zinc-900/80 backdrop-blur-sm">
@@ -62,14 +66,14 @@ export function Navigation() {
             )
           )}
 
-          <a href="https://app.hel.io/pay/678ce784a8f2dca1e48eec56" target="_blank" rel="noopener noreferrer " className="no-underline">
-            <Button
 
-              className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
-            >
-              Join Presale
-            </Button>
-          </a>
+          <Button
+            onClick={() => setIsPresaleModalOpen(true)}
+            className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
+          >
+            Join Presale
+          </Button>
+
 
           {/* {wallet && (
             <DropdownMenu>
@@ -126,19 +130,17 @@ export function Navigation() {
                   </Link>
                 )
               )}
-
-              <a href="https://app.hel.io/pay/678ce784a8f2dca1e48eec56" target="_blank" rel="noopener noreferrer " className="no-underline">
-                <Button
-
-                  className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
-                >
-                  Join Presale
-                </Button>
-              </a>
+              <Button
+                onClick={() => setIsPresaleModalOpen(true)}
+                className="bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90"
+              >
+                Join Presale
+              </Button>
             </div>
           </SheetContent>
         </Sheet>
       </div>
+      <PresaleRedirectModal isOpen={isPresaleModalOpen} onClose={() => setIsPresaleModalOpen(false)} />
     </nav>
   );
 }
