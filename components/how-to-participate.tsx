@@ -1,8 +1,11 @@
+'use client';
 import { GlowCard } from "@/components/ui/glow-card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from 'lucide-react'
 
-export function HowToParticipate() {
+export function HowToParticipate(
+  { setIsPresaleModalOpen }: { setIsPresaleModalOpen: (value: boolean) => void }
+) {
   return (
     <section id="how-to-participate" className="py-20 px-4">
       <div className="container mx-auto space-y-12">
@@ -51,13 +54,14 @@ export function HowToParticipate() {
 
 
             <div>
-            <a href="https://app.hel.io/pay/678ce784a8f2dca1e48eec56" target="_blank" rel="noopener noreferrer " className="no-underline">
+
               <Button
+                onClick={() => setIsPresaleModalOpen(true)}
                 className="w-full gap-2 bg-[#00faa7] text-zinc-900 hover:bg-[#00faa7]/90">
                 Join Presale Now
                 <ArrowRight className="w-4 h-4" />
               </Button>
-            </a>
+
             </div>
           </GlowCard>
 
