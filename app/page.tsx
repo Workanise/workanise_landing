@@ -43,10 +43,10 @@ export default function Home() {
       <div className="min-h-screen bg-zinc-900 relative overflow-hidden">
         <div className="relative z-10">
           {/* Hero Section */}
-          <section className="pt-32 pb-20 px-4">
+          <section className="pt-32 pb-20 px-4 ">
             <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white">
+                <h1 className="text-4xl md:text-6xl font-bold leading-normal text-white">
                   Freelance Workspace
                   <GradientText className="block">
                     Reinvented for Web3
@@ -78,8 +78,9 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-
-              <PresaleCard />
+              <div className="flex justify-center items-center px-0">
+                <PresaleCard />
+              </div>
             </div>
           </section>
 
