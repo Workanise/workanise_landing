@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { ThirdwebProvider } from "thirdweb/react";
-import { Navigation } from "@/components/navigation";
 import { ToastContainer } from "react-toastify";
-import { Footer } from "../components/footer";
+import { ReactQueryProvider } from "./react-query-provider";
 
 const mont = Montserrat({ weight: ["400", "700"], subsets: ["latin"] });
 
@@ -42,10 +40,10 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${mont.className} bg-zinc-900 text-white`}>
-        <ThirdwebProvider>
+        <ReactQueryProvider>
           {children}
           <ToastContainer />
-        </ThirdwebProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

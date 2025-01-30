@@ -1,33 +1,26 @@
 "use client";
-
-import { useReadContract } from "thirdweb/react";
-import { toTokens } from "thirdweb/utils";
-import { contract } from "@/lib/thirdweb";
 import { total_presale } from "@/lib/constant";
 
 /**
  * Hook to get presale progress details.
- * @returns {object} An object containing progress percentage, current supply, and isPending status.
+ * @param {number} currentSupply - The current supply value.
+ * @param {number} [presaleTotalSupply=total_presale] - The total presale supply (optional, defaults to total_presale).
+ * @returns {object} An object containing progress percentage and current supply.
  */
-export function usePresaleProgress(presaleTotalSupply: number = total_presale) {
-  const { data, isPending } = useReadContract({
-    contract,
-    method: "function totalSupply() view returns (uint256)",
-    params: [],
-  });
-
-  // Convert current supply to a number
-  const currentSupply = data ? Number(toTokens(data, 18)) : 0;
+export function usePresaleProgress(
+  currentSupply: number,
+  presaleTotalSupply: number = total_presale
+) {
+  // Ensure currentSupply is a number
+  const validCurrentSupply = Number(currentSupply) || 0;
 
   // Calculate progress percentage as a number
   const progressPercentage = (
-    (currentSupply / presaleTotalSupply) *
+    (validCurrentSupply / presaleTotalSupply) *
     100
   ).toFixed(2);
 
   return {
-    currentSupply,
     progressPercentage,
-    isPending,
   };
 }

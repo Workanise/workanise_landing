@@ -19,7 +19,7 @@ import { HowToParticipate } from "@/components/how-to-participate";
 import { SocialTasks } from "@/components/social-tasks";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { PresaleStats } from "@/components/presale/stats";
+import { PresaleStats } from "@/components/stats";
 import { useState } from "react";
 import { PresaleRedirectModal } from "@/components/presale-redirect-modal";
 
