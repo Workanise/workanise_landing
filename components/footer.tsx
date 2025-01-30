@@ -43,10 +43,10 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-zinc-400 hover:text-[#00faa7]"><Twitter /></a>
-              <a href="https://t.me/workanisecommumity" className="text-zinc-400 hover:text-[#00faa7]"><Telegram /></a>
-              <a href="http://Youtube.com/workanise" className="text-zinc-400 hover:text-[#00faa7]"><Youtube /></a>
-              <a href="#" className="text-zinc-400 hover:text-[#00faa7]"><FileText /></a>
+              <a href="https://x.com/Workanise" target='_blank' className="text-zinc-400 hover:text-[#00faa7]"><Twitter /></a>
+              <a href="https://t.me/workanisecommumity" target='_blank'   className="text-zinc-400 hover:text-[#00faa7]"><Telegram /></a>
+              <a href="http://Youtube.com/workanise"  target='_blank' className="text-zinc-400 hover:text-[#00faa7]"><Youtube /></a>
+              <a href="https://workanise-litepaper.gitbook.io/workanise-litepaper" target='_blank' className="text-zinc-400 hover:text-[#00faa7]"><FileText /></a>
             </div>
           </div>
         </div>
