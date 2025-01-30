@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "Are the team tokens locked?",
-    answer: "Yes, 75% of team tokens are locked for 13 months, with 1.4% being unlocked monthly from Marketing and Whitelist. The Foundation and community reserve is locked for 2 months with 0.5% monthly unlock thereafter."
+    answer: "Yes, 75% of team tokens are locked for 13 months. Also 1.4% monthly unlocked for Marketing while the Foundation and Community reserve is locked for 2 months after launch with 0.5% monthly release thereafter"
   },
   {
     question: "What blockchain network is Workanise built on?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "What are the benefits of participating in the presale?",
-    answer: "Presale participants get access to tokens at the best possible price before public listing. Additional benefits for presalers will be announced, including potential whitelist benefits and early access to platform features."
+    answer: "Presalers have access to buy cheaper prelaunch, obtain freelance discount up to 50%, free Work Points only obtainable by community mining  and wallet whitelisted for additional benefits for presalers."
   }
 ]
 

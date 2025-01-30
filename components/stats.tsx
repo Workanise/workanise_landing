@@ -3,10 +3,29 @@
 import { GlowCard } from "@/components/ui/glow-card";
 import { Progress } from "@/components/ui/progress";
 import { usePresaleProgress } from "@/hooks/usePresaleProgress";
-import { max_supply } from "@/lib/constant";
+import { max_supply, price_per_work } from "@/lib/constant";
+import { useTransaction } from "@/data/get-transaction";
 
 export function PresaleStats() {
-  const { currentSupply, progressPercentage, isPending } = usePresaleProgress();
+ 
+
+  const { data, isPending } = useTransaction();
+
+  const transaction = data?.data || [];
+
+  const totalUSD = transaction.reduce((sum, item) => {
+    return sum + (Number(item.meta?.totalAmountAsUSD) || 0);
+  }, 0);
+
+  const totalQuantity = transaction.reduce((sum, item) => {
+    return sum + (Number(item.quantity) || 0);
+  }, 0);
+
+  
+  const formattedTotalUSD = (totalUSD / 1_000_000).toFixed(1);
+
+
+  const { progressPercentage, } = usePresaleProgress(totalQuantity);
 
   return (
     <section className="py-20 px-4 border-t border-zinc-800">
@@ -17,11 +36,11 @@ export function PresaleStats() {
               <h3 className="text-lg font-medium text-zinc-400">
                 Total Raised
               </h3>
-              <p className="text-3xl font-bold text-white">$0</p>
+              <p className="text-3xl font-bold text-white">${formattedTotalUSD}</p>
             </div>
             <div className="space-y-2">
               <h3 className="text-lg font-medium text-zinc-400">Token Price</h3>
-              <p className="text-3xl font-bold text-[#00faa7]">TBA</p>
+              <p className="text-3xl font-bold text-[#00faa7]">${price_per_work}</p>
             </div>
             <div className="space-y-2">
               <h3 className="text-lg font-medium text-zinc-400">
